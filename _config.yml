@@ -1,0 +1,14 @@
+# --- Site metadata ----------------------------------------------------------
+title: "Memory Lane"
+description: >-
+  A journal where I share what I’m learning. Built as a static site with Jekyll
+  and deployed to GitHub Pages for the 1.9 “Memory Lane” assignment.
+
+# --- Hosting paths (update these two for deployment) -----------------------
+url: "https://github.com/AmoyTurner-FS/1.9-Assignment-Memory-Lane.git"
+baseurl: "/1.9-Assignment-Memory-Lane"
+
+# --- Build settings ---------------------------------------------------------
+theme: minima
+plugins:
+  - jekyll-feed
