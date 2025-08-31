@@ -3,13 +3,21 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const passport = require("passport");
+
+require("./services/passport");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/movies", require("./routes/movies"));
+app.use("/api/v1/auth", require("./routes/auth"));
+
+const requireAuth = passport.authenticate("jwt", { session: false });
+const moviesRouter = require("./routes/movies");
+app.use("/api/movies", requireAuth, moviesRouter);
+app.use("/api/v1/movies", requireAuth, moviesRouter);
 
 mongoose
   .connect(process.env.MONGO_URL)
